@@ -1,0 +1,9 @@
+{
+  "name": "dotjs",
+  "version": "0.0.1",
+  "description": "JavaScript Open World",
+  "main": "index.js",
+  "repository": "https://github.com/reyhansoft/dotjs.git",
+  "author": "Mohsen <sed.mohsen.moosavi@gmail.com>",
+  "license": "MIT"
+}
