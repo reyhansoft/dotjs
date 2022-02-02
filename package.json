@@ -1,0 +1,23 @@
+{
+  "name": "dotjs",
+  "version": "0.0.1",
+  "description": "JavaScript Open World",
+  "main": "index.js",
+  "repository": "https://github.com/reyhansoft/dotjs.git",
+  "author": "Mohsen <sed.mohsen.moosavi@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "handlebars": "^4.7.7",
+    "jasmine": "^4.0.2",
+    "pug": "^3.0.2"
+  },
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "jasmine --config=tests/unit/support/jasmine.json"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "standard": "^16.0.4"
+  }
+}

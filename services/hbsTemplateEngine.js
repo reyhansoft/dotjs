@@ -1,0 +1,21 @@
+const hbs = require('handlebars')
+const fs = require('fs')
+
+module.exports = function () {
+
+    hbs.registerHelper('equals', function(arg1, arg2, options) {
+        return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+    });
+
+    return {
+        canHandle (filename) {
+            return filename.endsWith('.hbs')
+        },
+        render (templatePath, model) {
+            console.debug(`render hbs ${templatePath} ${JSON.stringify(model)}`)
+            const content = fs.readFileSync(templatePath, 'utf8')
+            const template = hbs.compile(content)
+            return template(model)
+        }
+    }
+}

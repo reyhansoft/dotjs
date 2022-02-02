@@ -1,0 +1,97 @@
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebBold.eot);
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebBold.eot?#iefix) format("embedded-opentype")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebBold.woff) format("woff")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebBold.woff2) format("woff2")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebBold.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 100;
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebThin.eot);
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebThin.eot?#iefix) format("embedded-opentype")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebThin.woff) format("woff")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebThin.woff2) format("woff2")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebThin.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 300;
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebLight.eot);
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebLight.eot?#iefix) format("embedded-opentype")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebLight.woff) format("woff")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebLight.woff2) format("woff2")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebLight.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebRegular.eot);
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebRegular.eot?#iefix) format("embedded-opentype")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebRegular.woff) format("woff")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebRegular.woff2) format("woff2")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebRegular.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 500;
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebMedium.eot);
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebMedium.eot?#iefix) format("embedded-opentype")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebMedium.woff) format("woff")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebMedium.woff2) format("woff2")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebMedium.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 800;
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebBold.eot);
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebExtraBold.eot?#iefix) format("embedded-opentype")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebExtraBold.woff) format("woff")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebExtraBold.woff2) format("woff2")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebExtraBold.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 850;
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebBlack.eot);
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebBlack.eot) format("embedded-opentype")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebBlack.woff) format("woff")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebBlack.woff2) format("woff2")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebBlack.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: iranyekan;
+    font-style: normal;
+    font-weight: 900;
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebExtraBlack.eot);
+    src: url(/assets/fonts/IranYekanWeb/IRANYekanWebExtraBlack.eot) format("embedded-opentype")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebBlack.woff) format("woff")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebExtraBlack.woff2) format("woff2")
+		,url(/assets/fonts/IranYekanWeb/IRANYekanWebExtraBlack.ttf) format("truetype")
+}
+
+body {
+    color: rgba(0, 0, 0, 0.87);
+    margin: 0;
+    font-size: 1rem;
+    font-family: iranyekan,Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+    background-color: #fafafa;
+  }
