@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="rtl">
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,6 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='/themes/default/css/bootstrap.rtl.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/themes/default/css/main.css'>
 </head>
+
 <body>
     <div class="container-md">
         <nav class="navbar navbar-expand-lg navbar-light bg-warning rounded-1 mt-3 mb-3">
@@ -15,24 +17,44 @@
                 <a class="navbar-brand" href="/">
                     <img src="/assets/images/logo.png" width="48" height="48" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         {{#each menu }}
                         <li class="nav-item">
-                            <a class="nav-link{{#equals ../route.path path}} active{{/equals}}" aria-current="page" href="{{path}}">{{ title }}</a>
+                            <a class="nav-link{{#equals ../route.path path}} active{{/equals}}" aria-current="page"
+                                href="{{path}}">{{ title }}</a>
                         </li>
                         {{/each}}
                     </ul>
                 </div>
             </div>
         </nav>
+        <nav class="bg-white rounded-1 mb-3">
+            <div class="d-flex pt-2 align-items-md-center flex-wrap">
+                {{#if route.templateRelativePath}}
+                <a class="btn btn-light fs-7 ms-2 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/edit/main/{{route.templateRelativePath}}">ویرایش صفحه در گیت هاب</a>
+                {{/if}}
+                {{#if route.handlerRelativePath}}
+                <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/edit/main/{{route.handlerRelativePath}}">ویرایش متا در گیت هاب</a>
+                {{/if}}
+                {{#if route.templateRelativePath}}
+                <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/commits/main/{{route.templateRelativePath}}">تاریخچه صفحه</a>
+                {{/if}}
+                {{#if route.handlerRelativePath}}
+                <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/commits/main/{{route.handlerRelativePath}}">تاریخچه متا</a>
+                {{/if}}
+            </div>
+        </nav>
         <div>
             {{{ body }}}
         </div>
     </div>
+    <script src="/themes/default/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
 
+</html>
