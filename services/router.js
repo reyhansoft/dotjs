@@ -34,10 +34,14 @@ function createRoutes (files, pagesPath) {
     }
     if (type === '.js') {
       routes[urlPath]['handler'] = require(fileFullPath)
+      routes[urlPath]['handlerRelativePath'] = path.relative('.', fileFullPath).replaceAll(path.sep, '/')
     } else if (!routes[urlPath]['template']) {
       routes[urlPath]['template'] = fileFullPath
+      routes[urlPath]['templateRelativePath'] = path.relative('.', fileFullPath).replaceAll(path.sep, '/')
     }
   });
+
+  console.log(routes)
 
   // handling /index pages
   for (let routePath in routes) {
