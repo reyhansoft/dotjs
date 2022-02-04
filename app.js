@@ -1,7 +1,8 @@
 const express = require('express')
+const config = require('./config')
 const path = require('path')
 const router = require('./services/router')({
-  pagesPath: path.resolve('./pages')
+  pagesPath: path.resolve(config.paths.output)
 })
 const currentTheme = 'default'
 
