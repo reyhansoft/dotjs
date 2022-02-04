@@ -26,7 +26,7 @@ app.use('/*', (req, res, next) => {
   const path = req.originalUrl.replace(/\?.*$/, '')
   
   const route = router.getRoute(path)
- 
+  
   if (!route) {
     res.send('NOT FOUND')
     return
@@ -38,7 +38,7 @@ app.use('/*', (req, res, next) => {
     }
     let model = {}
     if (typeof route.handler?.get === 'function') {
-      model = route.handler.get()
+      model = route.handler.get(context)
     }
     if (route.template) {
       res.send(templateEngine.render(currentTheme, route.template, model, context))
@@ -51,7 +51,7 @@ app.use('/*', (req, res, next) => {
 app.use(function(err, req, res, next) {
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
-
+  
   res.status(err.status || 500)
   res.send('error')
 });
