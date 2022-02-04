@@ -36,18 +36,9 @@
         </nav>
         <nav class="bg-white rounded-1 mb-3">
             <div class="d-flex pt-2 align-items-md-center flex-wrap">
-                {{#if route.templateRelativePath}}
-                <a class="btn btn-light fs-7 ms-2 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/edit/main/{{route.templateRelativePath}}">ویرایش صفحه در گیت هاب</a>
-                {{/if}}
-                {{#if route.handlerRelativePath}}
-                <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/edit/main/{{route.handlerRelativePath}}">ویرایش متا در گیت هاب</a>
-                {{/if}}
-                {{#if route.templateRelativePath}}
-                <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/commits/main/{{route.templateRelativePath}}">تاریخچه صفحه</a>
-                {{/if}}
-                {{#if route.handlerRelativePath}}
-                <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/commits/main/{{route.handlerRelativePath}}">تاریخچه متا</a>
-                {{/if}}
+                <a class="btn btn-light fs-7 ms-2 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/edit/main/pages/{{route.page}}">ویرایش صفحه در گیت هاب</a>
+                <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/commits/main/pages/{{route.page}}">تاریخچه صفحه</a>
+                <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/issues/new?title=مشکل%20pages/{{route.page}}&body=توضحیات%20اشکال">گزارش اشکال</a>
             </div>
         </nav>
         <div>

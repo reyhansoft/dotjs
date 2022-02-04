@@ -33,11 +33,11 @@ function createRoutes (files, pagesPath) {
       }
     }
     if (type === '.js') {
+      const filePath =  file.replaceAll(path.sep, '/')
+      routes[urlPath]['page'] = filePath.substring(0, filePath.length - 3) + '.djs'
       routes[urlPath]['handler'] = require(fileFullPath)
-      routes[urlPath]['handlerRelativePath'] = path.relative('.', fileFullPath).replaceAll(path.sep, '/')
     } else if (!routes[urlPath]['template']) {
       routes[urlPath]['template'] = fileFullPath
-      routes[urlPath]['templateRelativePath'] = path.relative('.', fileFullPath).replaceAll(path.sep, '/')
     }
   });
 
