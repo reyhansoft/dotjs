@@ -4,6 +4,7 @@ module.exports = function ({
 }) {
   return {
     menu: router.getPagesStructure(),
+    router,
     route
   }
 }

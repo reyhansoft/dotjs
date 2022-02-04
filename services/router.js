@@ -29,7 +29,8 @@ function createRoutes (files, pagesPath) {
       routes[urlPath] = {
         type: 'main',
         path: urlPath,
-        realPath: urlPath
+        realPath: urlPath,
+        isDir: false
       }
     }
     if (type === '.js') {
@@ -41,18 +42,17 @@ function createRoutes (files, pagesPath) {
     }
   });
 
-  console.log(routes)
-
   // handling /index pages
   for (let routePath in routes) {
     if (routePath.endsWith('/index')) {
       const newPath = routePath.substring(0, routePath.length - 5)
       routes[newPath] = routes[routePath]
       routes[newPath].path = newPath
+      routes[newPath].isDir = true
       routes[routePath] = { type: 'alt', path: newPath }
     }
   }
-  
+
   return routes
 }
 
@@ -132,6 +132,34 @@ module.exports = function ({
           }
         })
         return result
+      },
+      getSubRoutes (route, depth = 1) {
+        
+        if (!route.endsWith('/index') || depth < 1) {
+          return []
+        }
+
+        const routePath = route.substring(0, route.length - 5)
+        const countOfSlashes = countCharInString(routePath, '/')
+
+        const subRoutes = Object.values(routes)
+          .filter(t => {
+            if (t.type !== 'main') return false
+            const countOfSlashesInSubRoute = countCharInString(t.realPath, '/')
+            return t.realPath !== route &&
+              t.realPath.startsWith(routePath) &&
+              (
+                countOfSlashesInSubRoute - countOfSlashes < 1 ||
+                (countOfSlashesInSubRoute - countOfSlashes === 1 && t.realPath.endsWith('/index'))
+              )
+          })
+          .map(t => {
+              t['childs'] = t.isDir
+                ? this.getSubRoutes(t.realPath, depth - 1)
+                : []
+            return t
+          })
+        return subRoutes
       }
     }
 }

@@ -26,7 +26,17 @@ function build(cb) {
     const template = dom('head > template')
     if (template) {
       const engine = template.attr('engine')
-      const content = template.html().trim()
+      let src = template.attr('src')
+      if (src) {
+        if (src.startsWith('~/')) {
+          src = path.join(path.resolve('.'), src.substring(2))
+        } else {
+          src = path.join(pageDirPath, src)
+        }
+      }
+      const content = src
+        ? fs.readFileSync(src, 'utf8')
+        : template.html().trim()
       fs.writeFileSync(path.join(pageDirPath, pageName + '.' + engine), content)
     }
     const script = dom('head > script')
