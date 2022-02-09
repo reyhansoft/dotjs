@@ -166,7 +166,10 @@ module.exports = function ({
         let path = '/'
         let result = []
         const routesArray = Object.values(routes)
-        for (let i  = 1; i < pathParts.length - 1; i++) {
+        const endIndex = pathParts[pathParts.length - 1] === 'index'
+          ? pathParts.length - 1
+          : pathParts.length
+        for (let i  = 1; i < endIndex; i++) {
           const route = routesArray.find(t => t.realPath === `${path}index`)
           result.push(route)
           path += pathParts[i] + '/'
