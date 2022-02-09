@@ -4,6 +4,7 @@ module.exports = function ({
 }) {
   return {
     menu: router.getPagesStructure(),
+    breadcrumb: router.getPathFromRoot(route.realPath),
     router,
     route
   }

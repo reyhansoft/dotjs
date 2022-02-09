@@ -160,6 +160,18 @@ module.exports = function ({
             return t
           })
         return subRoutes
+      },
+      getPathFromRoot (routeRealPath) {
+        const pathParts = routeRealPath.split('/')
+        let path = '/'
+        let result = []
+        const routesArray = Object.values(routes)
+        for (let i  = 1; i < pathParts.length - 1; i++) {
+          const route = routesArray.find(t => t.realPath === `${path}index`)
+          result.push(route)
+          path += pathParts[i] + '/'
+        }
+        return result
       }
     }
 }

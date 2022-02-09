@@ -42,6 +42,14 @@
                 <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/issues/new?title=مشکل%20pages/{{route.page}}&body=توضحیات%20اشکال">گزارش اشکال</a>
             </div>
         </nav>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {{#each breadcrumb }}
+                <li class="breadcrumb-item"><a href="{{path}}">{{handler.meta.title}}</a></li>
+                {{/each}}
+                <li class="breadcrumb-item active" aria-current="page">{{route.handler.meta.title}}</li>
+            </ol>
+        </nav>
         <div>
             {{{ body }}}
         </div>
