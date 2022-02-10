@@ -16,7 +16,6 @@ module.exports = function () {
             return filename.endsWith('.hbs')
         },
         render (templatePath, model) {
-            console.debug(`render hbs ${templatePath} ${JSON.stringify(model)}`)
             const content = fs.readFileSync(templatePath, 'utf8')
             const template = hbs.compile(content)
             return template(model)

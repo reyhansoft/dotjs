@@ -106,9 +106,7 @@ module.exports = function ({
         })
         routePaths.forEach((path) => {
           const route = routes[path]
-          console.debug('adding path > ' + path)
           if (route.type == 'main' && route.handler?.meta?.title) {
-            console.debug('path is main and has a title')
             const pathParts = path.split('/')
             if (pathParts[pathParts.length - 1] === '') {
               pathParts.pop()
