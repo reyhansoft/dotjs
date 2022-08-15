@@ -103,3 +103,19 @@ body {
 a {
   text-decoration: none;
 }
+
+.page-content {
+  background-color: white;
+  border-radius: 6px;
+  padding: 25px;
+}
+
+.page-content h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-content h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
