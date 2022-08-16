@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {{#each breadcrumb.items }}
+        <li class="breadcrumb-item"><a href="{{path}}">{{handler.meta.title}}</a></li>
+        {{/each}}
+        <li class="breadcrumb-item active" aria-current="page">{{breadcrumb.currentPageTitle}}</li>
+    </ol>
+</nav>
