@@ -8,7 +8,7 @@ const currentTheme = 'default'
 const pagePlugin = require('./plugins/page')
 const prismJsPlugin = require('./plugins/prismjs')
 const breadcrumbPlugin = require('./plugins/breadcrumb')
-const topmenuPlugin = require('./plugins/topmenu')
+const topmenuPlugin = require('./plugins/topMenu')
 
 const hbsTemplateEngine = require('./services/hbsTemplateEngine')()
 const templateEngine = require('./services/templateEngine')({
