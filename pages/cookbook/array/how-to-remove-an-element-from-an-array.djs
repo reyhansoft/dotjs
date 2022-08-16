@@ -74,6 +74,7 @@ console.log(filteredArray); // ['Apple', 'Banana', 'Blackberry', 'Orange']
 module.exports = {
     meta: {
         title: 'چطور می توان یک آیتم مشخص از آرایه را حذف کرد؟'
-    }
+    },
+    plugins: ['prismjs']
 }
 </script>

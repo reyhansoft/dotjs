@@ -4,11 +4,14 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>{{ route.handler.meta.title }} - DotJS</title>
+    <title>{{ page.title }} - DotJS</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/themes/default/css/bootstrap.rtl.min.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/themes/default/css/main.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    {{#each layout.head}}
+        {{{ this }}}
+    {{/each}}
 </head>
 
 <body>
@@ -24,14 +27,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        {{#each menu }}
-                        <li class="nav-item">
-                            <a class="nav-link{{#equals ../route.path path}} active{{/equals}}" aria-current="page"
-                                href="{{path}}">{{ title }}</a>
-                        </li>
-                        {{/each}}
-                    </ul>
+                    {{> topmenu }}
                 </div>
             </div>
         </nav>
@@ -42,20 +38,16 @@
                 <a class="btn btn-light ms-2 fs-7 mb-2" target="github" href="https://github.com/reyhansoft/dotjs/issues/new?title=مشکل%20pages/{{route.page}}&body=توضحیات%20اشکال">گزارش اشکال</a>
             </div>
         </nav>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {{#each breadcrumb }}
-                <li class="breadcrumb-item"><a href="{{path}}">{{handler.meta.title}}</a></li>
-                {{/each}}
-                <li class="breadcrumb-item active" aria-current="page">{{route.handler.meta.title}}</li>
-            </ol>
-        </nav>
+        {{> breadcrumb }}
         <div>
-            {{{ body }}}
+            {{> page }}
         </div>
     </div>
     <script src="/themes/default/js/bootstrap.bundle.min.js"></script>
     <script src="/themes/default/js/components.js"></script>
+    {{#each layout.body}}
+        {{{ this }}}
+    {{/each}}
 </body>
 
 </html>

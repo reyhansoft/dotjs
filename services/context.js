@@ -1,11 +1,16 @@
 module.exports = function ({
-    router,
-    route
-}) {
-  return {
-    menu: router.getPagesStructure(),
-    breadcrumb: router.getPathFromRoot(route.realPath),
+    router
+}, req) {
+  const path = req.originalUrl.replace(/\?.*$/, '')
+  const route = router.getRoute(path)
+  
+  const context = {
     router,
     route
   }
+  context.model = typeof route?.handler?.get === 'function'
+    ? route.handler.get(context)
+    : {}
+
+  return context
 }

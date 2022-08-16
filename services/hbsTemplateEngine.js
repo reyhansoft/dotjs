@@ -1,5 +1,6 @@
 const hbs = require('handlebars')
 const fs = require('fs')
+const path = require('path')
 
 module.exports = function () {
 
@@ -19,6 +20,17 @@ module.exports = function () {
             const content = fs.readFileSync(templatePath, 'utf8')
             const template = hbs.compile(content)
             return template(model)
+        },
+        addPluginTemplate (plugin, template) {
+            hbs.registerPartial(plugin, template)
+        },
+        TryAddAddPlugin (plugin, pluginsPath) {
+            const pluginPath = path.join(pluginsPath, plugin + '.hbs')
+            if (!fs.existsSync(pluginPath)) {
+                return
+            }
+            const template = fs.readFileSync(pluginPath, 'utf8')
+            this.addPluginTemplate(plugin, template)
         }
     }
 }

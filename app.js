@@ -5,6 +5,10 @@ const router = require('./services/router')({
   pagesPath: path.resolve(config.paths.output)
 })
 const currentTheme = 'default'
+const pagePlugin = require('./plugins/page')
+const prismJsPlugin = require('./plugins/prismjs')
+const breadcrumbPlugin = require('./plugins/breadcrumb')
+const topmenuPlugin = require('./plugins/topmenu')
 
 const hbsTemplateEngine = require('./services/hbsTemplateEngine')()
 const templateEngine = require('./services/templateEngine')({
@@ -12,7 +16,14 @@ const templateEngine = require('./services/templateEngine')({
   engines: [
     hbsTemplateEngine
   ],
-  themesPath: 'themes'
+  themesPath: 'themes',
+  plugins: {
+    page: pagePlugin(),
+    prismjs: prismJsPlugin(),
+    breadcrumb: breadcrumbPlugin(),
+    topmenu: topmenuPlugin()
+  },
+  defaultPlugins: ['topmenu', 'breadcrumb', 'page']
 })
 
 const contextBuilder = require('./services/context')
@@ -23,29 +34,23 @@ app.use(`/themes/${currentTheme}`, express.static(path.resolve(`./themes/${curre
 app.use('/assets', express.static(path.resolve('./assets')))
 
 app.use('/*', (req, res, next) => {
-  const path = req.originalUrl.replace(/\?.*$/, '')
-  
-  const route = router.getRoute(path)
-  
-  if (!route) {
-    res.send('NOT FOUND')
+ 
+  const context = contextBuilder({ router }, req)
+
+  if (!context.route) {
+    res.sendStatus(404)
     return
   }
-    const context = contextBuilder({ router, route })
-    if (route.type == 'rdr') {
-      res.redirect(route.path)
-      return
-    }
-    let model = {}
-    if (typeof route.handler?.get === 'function') {
-      model = route.handler.get(context)
-    }
-    if (route.template) {
-      res.send(templateEngine.render(currentTheme, route.template, model, context))
-    } else {
-      res.send(model)
-    }
-
+    
+  if (context.route.type == 'rdr') {
+    res.redirect(context.route.path)
+    return
+  }
+  if (context.route.template) {
+    res.send(templateEngine.render(currentTheme, context))
+  } else {
+    res.send(model)
+  }
 })
 
 app.use(function(err, req, res, next) {
