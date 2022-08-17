@@ -108,6 +108,7 @@ a {
   background-color: white;
   border-radius: 6px;
   padding: 25px;
+  line-height: 2rem;
 }
 
 .page-content h1 {
