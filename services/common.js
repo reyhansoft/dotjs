@@ -15,6 +15,11 @@ function listDirectoriesRecursively (dir) {
   return result
 }
 
+function isProd() {
+  return (process.env.NODE_ENV || 'dev') === 'prod'
+}
+
 module.exports = {
-  listDirectoriesRecursively
+  listDirectoriesRecursively,
+  isProd
 }
