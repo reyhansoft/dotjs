@@ -6,6 +6,7 @@ const router = require('./services/router')({
 })
 const currentTheme = 'default'
 const pagePlugin = require('./plugins/page')
+const clarityPlugin = require('./plugins/clarity')
 const prismJsPlugin = require('./plugins/prismjs')
 const breadcrumbPlugin = require('./plugins/breadcrumb')
 const topmenuPlugin = require('./plugins/topMenu')
@@ -19,11 +20,12 @@ const templateEngine = require('./services/templateEngine')({
   themesPath: 'themes',
   plugins: {
     page: pagePlugin(),
+    clarity: clarityPlugin(),
     prismjs: prismJsPlugin(),
     breadcrumb: breadcrumbPlugin(),
     topmenu: topmenuPlugin()
   },
-  defaultPlugins: ['topmenu', 'breadcrumb', 'page']
+  defaultPlugins: ['clarity', 'topmenu', 'breadcrumb', 'page']
 })
 
 const contextBuilder = require('./services/context')
