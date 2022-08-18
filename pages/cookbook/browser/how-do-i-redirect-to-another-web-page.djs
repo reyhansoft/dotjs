@@ -35,6 +35,6 @@ module.exports = {
     meta: {
         title: 'چطور با استفاده از جاوااسکریپت به یه صفحه دیگه ریدایرکت کنم؟'
     },
-    plugins: ['prismjs']
+    plugins: ['page', 'prismjs']
 }
 </script>

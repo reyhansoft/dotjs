@@ -48,16 +48,19 @@ module.exports = function ({
 
       if (Array.isArray(pagePlugins)) {
         pagePlugins.forEach(plugin => {
-          if (plugins[plugin]) {
-            const result = plugins[plugin](context)
+          var requestedPlugin = plugins.find(t => t.name === plugin)
+          if (requestedPlugin) {
+            const result = requestedPlugin.run(context)
 
             if (result.model) {
               model = { ...result.model, ...model }
             }
-            if (result.template) {
-              engine.addPluginTemplate(plugin, result.template)
-            } else {
-              engine.TryAddAddPlugin(plugin, pluginsPath)
+            if (requestedPlugin.placeholder) {
+              if (result.template) {
+                engine.addPluginTemplate(requestedPlugin, result.template)
+              } else {
+                engine.TryAddAddPlugin(requestedPlugin, pluginsPath)
+              }
             }
             if (Array.isArray(result.head)) {
               model.layout.head = [...model.layout.head, ...result.head]

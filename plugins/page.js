@@ -1,13 +1,17 @@
 module.exports = function () {
-  return function ({ route, model, template }) {
-    return {
-      model: {
-        page: {
-          title: route.handler.meta.title
+  return {
+    name: 'page',
+    placeholder: 'page',
+    run: function ({ route, model, template }) {
+      return {
+        model: {
+          page: {
+            title: route.handler.meta.title
+          },
+          model
         },
-        model
-      },
-      template
+        template
+      }
     }
   }
 }

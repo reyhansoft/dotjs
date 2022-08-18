@@ -5,6 +5,7 @@
 module.exports = {
     meta: {
         title: 'خانه'
-    }
+    },
+    plugins: ['page']
 }
 </script>

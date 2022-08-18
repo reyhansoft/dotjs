@@ -1,0 +1,35 @@
+<ul class="list-unstyled">
+    {{#each page.contents}}
+    <li>
+        <div class="card mb-3">
+            <div class="card-body">
+                {{#if isDir}}
+                <i class="bi bi-folder"></i>
+                {{else}}
+                <i class="bi bi-card-text"></i>
+                {{/if}}
+                <a href="{{ path }}">{{ handler.meta.title }}</a>
+            </div>
+        </div>
+        
+        {{#any childs}}
+        <ul class="list-unstyled ms-5">
+            {{#each childs}}
+            <li>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        {{#if isDir}}
+                        <i class="bi bi-folder"></i>
+                        {{else}}
+                        <i class="bi bi-card-text"></i>
+                        {{/if}}
+                        <a href="{{ path }}">{{ handler.meta.title }}</a>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+        {{/any}}
+    </li>
+    {{/each}}
+</ul>
