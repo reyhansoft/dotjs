@@ -10,6 +10,7 @@ const clarityPlugin = require('./plugins/clarity')
 const prismJsPlugin = require('./plugins/prismjs')
 const breadcrumbPlugin = require('./plugins/breadcrumb')
 const topmenuPlugin = require('./plugins/topMenu')
+const listDirPagePlugin = require('./plugins/listDirPage')
 
 const hbsTemplateEngine = require('./services/hbsTemplateEngine')()
 const templateEngine = require('./services/templateEngine')({
@@ -18,14 +19,15 @@ const templateEngine = require('./services/templateEngine')({
     hbsTemplateEngine
   ],
   themesPath: 'themes',
-  plugins: {
-    page: pagePlugin(),
-    clarity: clarityPlugin(),
-    prismjs: prismJsPlugin(),
-    breadcrumb: breadcrumbPlugin(),
-    topmenu: topmenuPlugin()
-  },
-  defaultPlugins: ['clarity', 'topmenu', 'breadcrumb', 'page']
+  plugins: [
+    pagePlugin(),
+    clarityPlugin(),
+    prismJsPlugin(),
+    breadcrumbPlugin(),
+    topmenuPlugin(),
+    listDirPagePlugin()
+  ],
+  defaultPlugins: ['clarity', 'topmenu', 'breadcrumb']
 })
 
 const contextBuilder = require('./services/context')

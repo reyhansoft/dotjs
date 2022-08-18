@@ -2,7 +2,8 @@
 module.exports = {
     meta: {
         title: 'منابع و دوره های آموزشی جاوااسکریپت'
-    }
+    },
+    plugins: ['page']
 }
 </script>
 <template engine="hbs">

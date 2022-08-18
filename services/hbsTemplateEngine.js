@@ -22,10 +22,10 @@ module.exports = function () {
             return template(model)
         },
         addPluginTemplate (plugin, template) {
-            hbs.registerPartial(plugin, template)
+            hbs.registerPartial(plugin.placeholder, template)
         },
         TryAddAddPlugin (plugin, pluginsPath) {
-            const pluginPath = path.join(pluginsPath, plugin + '.hbs')
+            const pluginPath = path.join(pluginsPath, plugin.name + '.hbs')
             if (!fs.existsSync(pluginPath)) {
                 return
             }

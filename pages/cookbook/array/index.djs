@@ -1,9 +1,9 @@
-<template engine="hbs" src="~/templates/dirPage.hbs"></template>
+<template engine="hbs"></template>
 <script>
-const listingPage = require('../../../services/dirPage.js')
-module.exports = listingPage({
+module.exports = {
     meta: {
         title: 'آرایه ها'
-    }
-}, 1)
+    },
+    plugins: ['listdirpage']
+}
 </script>

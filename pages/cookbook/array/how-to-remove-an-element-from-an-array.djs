@@ -75,6 +75,6 @@ module.exports = {
     meta: {
         title: 'چطور می توان یک آیتم مشخص از آرایه را حذف کرد؟'
     },
-    plugins: ['prismjs']
+    plugins: ['page', 'prismjs']
 }
 </script>
