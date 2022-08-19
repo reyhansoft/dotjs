@@ -104,19 +104,19 @@ a {
   text-decoration: none;
 }
 
-.page-content {
+.page {
   background-color: white;
   border-radius: 6px;
   padding: 25px;
   line-height: 2rem;
 }
 
-.page-content h1 {
+.page h1 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
-.page-content h2 {
+.page h2 {
   font-size: 1.25rem;
   margin-bottom: 1.25rem;
 }

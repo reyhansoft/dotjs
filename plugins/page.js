@@ -10,7 +10,7 @@ module.exports = function () {
           },
           model
         },
-        template
+        template: `<div class="page">${template}</div>`
       }
     }
   }
