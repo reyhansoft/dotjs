@@ -11,6 +11,7 @@ const prismJsPlugin = require('./plugins/prismjs')
 const breadcrumbPlugin = require('./plugins/breadcrumb')
 const topmenuPlugin = require('./plugins/topMenu')
 const listDirPagePlugin = require('./plugins/listDirPage')
+const githubactionsPlugin = require('./plugins/githubactions')
 
 const hbsTemplateEngine = require('./services/hbsTemplateEngine')()
 const templateEngine = require('./services/templateEngine')({
@@ -25,9 +26,10 @@ const templateEngine = require('./services/templateEngine')({
     prismJsPlugin(),
     breadcrumbPlugin(),
     topmenuPlugin(),
-    listDirPagePlugin()
+    listDirPagePlugin(),
+    githubactionsPlugin()
   ],
-  defaultPlugins: ['clarity', 'topmenu', 'breadcrumb']
+  defaultPlugins: ['clarity', 'topmenu', 'breadcrumb', 'githubactions']
 })
 
 const contextBuilder = require('./services/context')

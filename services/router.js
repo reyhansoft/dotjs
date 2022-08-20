@@ -35,7 +35,7 @@ function createRoutes (files, pagesPath) {
     }
     if (type === '.js') {
       const filePath =  file.replaceAll(path.sep, '/')
-      routes[urlPath]['page'] = filePath.substring(0, filePath.length - 3) + '.djs'
+      routes[urlPath]['page'] = filePath.substring(0, filePath.length - 3) + '.md'
       routes[urlPath]['handler'] = require(fileFullPath)
     } else if (!routes[urlPath]['template']) {
       routes[urlPath]['template'] = fileFullPath
