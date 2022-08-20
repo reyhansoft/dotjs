@@ -2,7 +2,7 @@ FROM node:16-alpine3.15
 
 WORKDIR /app
 
-COPY package*.json /app
+COPY package*.json /app/
 
 RUN yarn install --production=true
 RUN yarn cache clean
