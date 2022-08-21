@@ -1,4 +1,4 @@
 ---
-meta.title: محیط توسعه 
+meta.title: محیط توسعه جاوااسکریپت
 plugins: listdirpage
 ---
