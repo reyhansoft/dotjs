@@ -1,4 +1,4 @@
 ---
-meta.title: یادگیری جاوااسکریپت، فریم ورک ها و کتابخانه ها
+meta.title: یادگیری جاوااسکریپت
 plugins: listdirpage
 ---
