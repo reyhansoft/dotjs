@@ -104,6 +104,14 @@ color:rgba(0, 0, 0, 0.87);
 background-color:rgba(255, 255, 255, 0.3);
 border-radius: 3px;
 }
+.navbar-nav .nav-link {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.breadcrumb-item {
+  line-height: 1.75rem;
+}
 
 .breadcrumb-item.active {
 color: #353a3e;
