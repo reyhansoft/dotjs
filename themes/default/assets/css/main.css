@@ -139,3 +139,16 @@ margin-bottom: 1.25rem;
 font-size: 1.15rem;
 margin-bottom: 1.15rem;
 }
+
+table {
+  margin-bottom: 15px;
+}
+
+table > tbody > tr:nth-child(2n + 1) {
+  background-color: #efefef;
+}
+
+table > tbody td {
+  padding: 5px;
+  border: 1px solid #aeaeae;
+}
