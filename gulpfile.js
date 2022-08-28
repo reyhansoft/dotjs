@@ -4,24 +4,6 @@ const { listDirectoriesRecursively, assignObjectProperty } = require('./services
 const cheerio = require('cheerio')
 const { paths } = require('./config')
 const { marked } = require('marked')
-const renderer = new marked.Renderer();
-const linkRenderer = renderer.link;
-
-const base_url = 'https://www.dotjs.ir/'
-
-renderer.link = (href, title, text) => {
-  const isAbsolute = /^\w+:\/\/.+$/.test(href)
-  const localLink = !isAbsolute || href.startsWith(base_url)
-  const html = linkRenderer.call(renderer, href, title, text)
-  return localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `)
-}
-marked.setOptions({
-  renderer: renderer,
-  gfm: true,
-  highlight: function (code, lang, callback) {
-    return "\n" + code
-  }
-})
 
 const pageMeta = {
   'meta.title': 'string',
@@ -79,6 +61,10 @@ function buildDjs() {
   })
 }
 
+function generatePageTableOfContents() {
+
+}
+
 function buildMd() {
   const engine = 'hbs'
   const pages = listDirectoriesRecursively(path.resolve(paths.pages))
@@ -111,11 +97,55 @@ plugins: plugin1, plugin2
         assignObjectProperty(pageData, propName.trim(), getPageMetaPropValue(propName.trim(), propValue.trim()))
       })
 
-      const scriptContent = 'module.exports = ' + JSON.stringify(pageData)
-      fs.writeFileSync(path.join(pageDirPath, pageName + '.js'), scriptContent)
+      const renderer = new marked.Renderer();
+      const linkRenderer = renderer.link;
+      const headingRenderer = renderer.heading
+      const base_url = 'https://www.dotjs.ir/'
+      
+      let lastLevel = 2
+      const toc = []
+      renderer.heading = (text, level, raw, slugger) => {
+
+        const html = headingRenderer.call(renderer, text, level, raw, slugger)
+        if (level === 1) {
+          lastLevel = level
+          return html
+        }
+        // normalize level
+        lastLevel = level > lastLevel && level - lastLevel > 1
+          ? lastLevel + 1
+          : level
+        toc.push({
+          level: lastLevel - 1,
+          title: text, 
+          id: html.split('id="')[1].split('">')[0]
+        })
+        return html
+      }
+
+     
+
+      renderer.link = (href, title, text) => {
+        const isAbsolute = /^\w+:\/\/.+$/.test(href)
+        const localLink = !isAbsolute || href.startsWith(base_url)
+        const html = linkRenderer.call(renderer, href, title, text)
+        return localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `)
+      }
+      marked.setOptions({
+        renderer: renderer,
+        gfm: true,
+        highlight: function (code, lang, callback) {
+          return "\n" + code
+        }
+      })
 
       const template = marked.parse(content.substring(content.indexOf('---', 3) + 3))
       fs.writeFileSync(path.join(pageDirPath, pageName + '.' + engine), template)
+
+      pageData.toc = toc
+
+      const scriptContent = 'module.exports = ' + JSON.stringify(pageData)
+      fs.writeFileSync(path.join(pageDirPath, pageName + '.js'), scriptContent)
     })
 }
 

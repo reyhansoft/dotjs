@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const _ = require('lodash')
 
 module.exports = function ({
   engines,
@@ -53,7 +54,7 @@ module.exports = function ({
             const result = requestedPlugin.run(context)
 
             if (result.model) {
-              model = { ...result.model, ...model }
+              model = _.merge(result.model, model)
             }
             if (requestedPlugin.placeholder) {
               if (result.template) {
