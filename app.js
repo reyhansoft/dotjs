@@ -12,6 +12,7 @@ const breadcrumbPlugin = require('./plugins/breadcrumb')
 const topmenuPlugin = require('./plugins/topMenu')
 const listDirPagePlugin = require('./plugins/listDirPage')
 const githubactionsPlugin = require('./plugins/githubactions')
+const tocPlugin = require('./plugins/toc')
 
 const hbsTemplateEngine = require('./services/hbsTemplateEngine')()
 const templateEngine = require('./services/templateEngine')({
@@ -27,9 +28,10 @@ const templateEngine = require('./services/templateEngine')({
     breadcrumbPlugin(),
     topmenuPlugin(),
     listDirPagePlugin(),
-    githubactionsPlugin()
+    githubactionsPlugin(),
+    tocPlugin()
   ],
-  defaultPlugins: ['clarity', 'topmenu', 'breadcrumb', 'githubactions']
+  defaultPlugins: ['clarity', 'topmenu', 'breadcrumb', 'githubactions', 'toc']
 })
 
 const contextBuilder = require('./services/context')

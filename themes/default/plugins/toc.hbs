@@ -1,0 +1,9 @@
+{{#if page.toc }}
+<nav id="toc">
+    <ul>
+        {{#each page.toc}}
+        <li><a href="#{{id}}" class="level-{{level}}">&#8226;&nbsp; {{ title }}</a></li>
+        {{/each}}
+    </ul>
+</nav>
+{{/if}}
